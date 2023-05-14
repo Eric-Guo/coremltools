@@ -11,9 +11,9 @@ BUILD_DIR="${COREMLTOOLS_HOME}/build"
 BUILD_MODE="Release"
 NUM_PROCS=1
 BUILD_PROTO=0
-BUILD_DIST=0
+BUILD_DIST=1
 BUILD_DIST_DEV=0
-PYTHON="3.7"
+PYTHON="3.10"
 CHECK_ENV=1
 
 # Defaults, which may be overridden
@@ -77,11 +77,11 @@ fi
 # Setup the right python
 source scripts/env_activate.sh --python=$PYTHON
 echo
-echo "Using python from $(which python)"
+echo "Using python from $(which python3)"
 echo
 
 # Uninstall any existing coremltools inside the build environment
-pip uninstall -y coremltools
+pip3 uninstall -y coremltools
 
 # Create a directory for building the artifacts
 mkdir -p ${BUILD_DIR}
